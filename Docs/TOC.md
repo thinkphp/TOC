@@ -12,7 +12,7 @@ TOC Method: constructor {#TOC:constructor}
 
 ### Syntax:
 
-	var toc = new TOC(arguments);
+	var toc = new TOC(element);
 
 ### Arguments:
 
