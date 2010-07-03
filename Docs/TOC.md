@@ -16,7 +16,7 @@ TOC Method: constructor {#TOC:constructor}
 
 ### Arguments:
 
-      1. element - (*String* or *Element*)  The element or element's ID where you want to inject the Table of Content.
+      1. element - (*String* or *Element*)  Should be an element or an element's ID where you want to inject the Table of Content.
 
 ### Returns:
 
