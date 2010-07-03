@@ -17,8 +17,12 @@ First you must to include the JS files in the head of your HTML document.
      <script type="text/javascript" src="mootools-core.js"></script>
      <script type="text/javascript" src="toc.js"></script>
 
+In your JavaScript area:
+
      #JS
      var toc = new TOC('toc');
+
+In your HTML area:
 
      #HTML
      <div id="toc"></div>
