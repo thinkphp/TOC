@@ -59,8 +59,3 @@ In your HTML area:
      <h3>Quirksmode.org</h3>
      <h3>The W3C DOM specification (http://www.w3.org/DOM/)</h3>
      <h3>http://www.scottandrew.com/weblog/jsjunk#events</h3> 
-
-Screnshoots:
-------------
-         
-![Screenshot](http://farm5.static.flickr.com/4095/4756533971_ec6a75b6f6.jpg)
