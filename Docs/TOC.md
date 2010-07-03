@@ -1,7 +1,7 @@
 Class: TOC {#TOC}
 =====================================
 
-TOC is a MooTools plugin which turn an HTML headings into a Table of Content.
+TOC is a MooTools Plugin which turn a list of HTML headings into a Table of Content
 
 ### Implements:
 
@@ -16,7 +16,7 @@ TOC Method: constructor {#TOC:constructor}
 
 ### Arguments:
 
-      1. element - (*string* or *Element*)  The element where you want to create Table of Content.
+      1. element - (*String* or *Element*)  The element or element's ID where you want to inject the Table of Content.
 
 ### Returns:
 

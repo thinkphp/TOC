@@ -1,7 +1,7 @@
 TOC
 =========
 
-TOC is a MooTools Plugin which turn an HTML headings into a Table of Content.
+TOC is a MooTools Plugin which turn a list of HTML headings into a Table of Content.
  
 ![Screenshot](http://farm5.static.flickr.com/4117/4757170244_07f03e67e9_b.jpg)
 
@@ -9,7 +9,8 @@ TOC is a MooTools Plugin which turn an HTML headings into a Table of Content.
 How to Use
 ----------
 
-TOC can be initialized an any time, but will most lilely be initialized ad DOMReady
+TOC can be initialized an any time, but will most lilely be initialized ad DOMReady.
+
 
 First you must to include the JS files in the head of your HTML document.
        
