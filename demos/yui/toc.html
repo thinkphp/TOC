@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />  
+  <title>Generate a TOC using YUI3</title>
+  <style type="text/css">
+  html,body{font-family: helvetica,arial,verdana,sans-serif;}
+  h1{color:#111}
+  h2{color:#444}
+  h3{color:#999}
+  .title{font-size: 240%;font-weight: bold}
+  </style>
+</head>
+<body>
+<center><span class="title">Generate a Table of Contents using YUI3</span></center>
+<div id="toc"></div>
+<h1>Unobtrusive JavaScript</h1>
+<h2>Operation Cleanout</h2>
+<h3>Never, under any circumstances add JavaScript directly to the document</h3>
+<h3>JavaScript is an enhancement, not a secure functionality</h3>
+<h3>Check the availability of the object before accessing it</h3>
+<h3>Create JavaScript, not browser specific dialects</h3>
+<h3>Don't hijack other script's variables</h3>
+<h3>Keep effects mouse independent</h3>
+<h2>Reach what you want to change</h2>
+<h3>Function to reach an element in the page</h3>
+<h3>Tool to navigate from a certain element</h3>
+<h3>Attributes and functions for elements</h3>
+<h2>Creating and destroying elements</h2>
+<h3>createElement(element)</h3>
+<h3>createTextNode(string)</h3>
+<h3>setAttribute(attribute,value)</h3>
+<h3>appendChild(child)</h3>
+<h3>cloneNode</h3>
+<h3>hasChildNodes()</h3>
+<h3>insertBefore(newChild,oldChild)</h3>
+<h3>removeChild(oldChild)</h3>
+<h3>replaceChild(newChild,oldChild)</h3>
+<h3>removeAttribute(attribute)</h3>
+<h2>Separated JS and CSS</h2>
+<h3>Our mistake</h3>
+<h3>Applying classes via JavaScript</h3>
+<h3>Multiple classes syntax</h3>
+<h2>Useful links</h2>
+<h3>http://www.w3.org/DOM</h3>
+<h3>Quirksmode.org</h3>
+<h3>The W3C DOM specification (http://www.w3.org/DOM/)</h3>
+<h3>http://www.scottandrew.com/weblog/jsjunk#events</h3>
+<script type="text/javascript" src="http://yui.yahooapis.com/3.0.0/build/yui/yui-min.js"></script>
+<script type="text/javascript" src="toc-yui3.js"></script>
+</body>
+</html>

@@ -1,21 +1,14 @@
 /*
----
-description: TOC is a MooTools Plugin which turn a HTML headings into a Table of Content.
-
-authors:
-- Adrian Statescu (http://thinkphp.ro).
-
-license:
-- MIT-style license.
-
-requires:
-core/1.2.1: '*'
-
-provides: [TOC]
-...
+ description: 
+              create TOC
+ author:      
+              Adrian Statescu
+ license:     
+              MIT-style license 
+ requires:    
+              core/1.2.3  
 */
-
-var TOC = new Class({
+var Toc = new Class({
 
           /* public method - constructor of class initialize */
 
@@ -123,4 +116,4 @@ var TOC = new Class({
                       }
                return resultArray; 
           }
-});//end class TOC
+});//end class Toc

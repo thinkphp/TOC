@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>YUI3 TOC (Table of Content)</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />  
+  <link rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/base/base.css" type="text/css">
+  <style type="text/css">
+  html,body{background: #fff;font-family: helvetica,arial,verdana,sans-serif;}
+  h2{color: #c00}
+  h3{color: #393}
+  div#toc{position:fixed;top: 100px;left: 570px;width: 400px;border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;z-index:4;font-family: helvetica,arial,verdana;background: #fff;font-size: 12px}
+  div#toc ul{padding: 0;}
+  div#toc a{color: #777;text-decoration: none}
+  div#toc a:hover{color: #222;}
+  span#contentheader{font-size: 90%;float: right;cursor: pointer}
+  #toc a{display: block;color: #444}
+  </style>
+  <script type="text/javascript" src="http://yui.yahooapis.com/3.0.0/build/yui/yui-min.js"></script>
+  <script type="text/javascript">
+          /* if dom is ready then begin */
+          window.onload = function() {
+
+                 setMenuOffset.initialPos = getStyle('toc','top');
+
+                 window.onscroll = document.documentElement.onscroll = setMenuOffset;
+
+                 setMenuOffset(); 
+
+          }//end window.onload
+
+                /*
+                 Description: function which performs currentOffset of the TOC
+                */
+                function setMenuOffset() {
+
+                       var toc = document.getElementById('toc');
+
+                           if(!toc) {return;}
+
+                       var currentOffset = document.documentElement.scrollTop || document.body.scrollTop;
+
+                       var startPos = parseInt(setMenuOffset.initialPos) || 100;
+
+                       var desiredOffset = startPos - currentOffset;
+
+                           if(desiredOffset < 10) {desiredOffset = 10;}
+
+                           if(desiredOffset != parseInt(toc.style.top)) {
+
+                                    toc.style.top = desiredOffset+ 'px';
+                           }
+                 }//end function setMenuOffset
+
+                 /*
+                 Description: get property style for an element for given 'id' 
+                 @param id (String) id of an element
+                 @param styleProp (String) property style element
+                 @return (int) y value of the property
+                 */
+                 function getStyle(id,styleProp) {
+
+                          var x = document.getElementById(id);
+
+                          if(x.currentStyle) {
+
+                               var y = x.currentStyle[styleProp];
+
+                          } else if(window.getComputedStyle) {
+
+                               var y = document.defaultView.getComputedStyle(x,null).getPropertyValue(styleProp);
+                          }
+
+                    return y;
+
+                 }//end function
+  </script>
+</head>
+<body>
+<div id="toc">
+<span id="contentheader">hide page contents</span>
+</div>
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+<h1>Cute things on the interwebs</h1>
+<h2 id="rabbits">Rabbits</h2>
+<h2 id="puppies">Puppies</h2>
+<h3 id="labs">Labradors</h3>
+<h3 id="alsatians">Alsatians</h3>
+<h3 id="corgies">Corgies</h3>
+<h3 id="retrievers">Retrievers</h3>
+<h2 id="kittens">Kittens</h2>
+<h2 id="gerbils">Gerbils</h2>
+<h2 id="ducklings">ducklings</h2>
+  <script type="text/javascript" src="toc-yui.js"></script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Pur JavaScript TOC - my old nemesis</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />  
+  <link rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/base/base.css" type="text/css">
+  <style type="text/css">
+  html,body{background: #fff;font-family: helvetica,arial,verdana,sans-serif;}
+  #bd{width: 500px;padding: 10px;margin-top: 100px}
+  pre code{background: #ffffDD}
+  strong{font-size: 12px}
+  p{font-size: 14px}
+  p.example a{color: #444;}
+  h1{color: #111;font-size: 30px}
+  h2{color: #444}
+  h3{color: #ccc}
+  div#toc{position:fixed;top: 100px;left: 670px;width: 300px;border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;z-index:4;font-family: helvetica,arial,verdana;background: #fff;font-size: 12px}
+  div#toc ul{padding: 0;}
+  div#toc a{color: #777;text-decoration: none}
+  div#toc a:hover{color: #222;}
+  span#contentheader{font-size: 90%;float: right;cursor: pointer}
+  #toc a{display: block;color: #444}
+  </style>
+  <script type="text/javascript" src="cookies.js"></script>
+  <script type="text/javascript">
+          /* if dom is ready then begin */
+          window.onload = function() {
+
+                 init_cookies();
+
+                 setMenuOffset.initialPos = getStyle('toc','top');
+
+                 window.onscroll = document.documentElement.onscroll = setMenuOffset;
+
+                 setMenuOffset(); 
+
+          }//end window.onload
+
+                /*
+                 Description: function which performs currentOffset of the TOC
+                */
+                function setMenuOffset() {
+
+                       var toc = document.getElementById('toc');
+
+                           if(!toc) {return;}
+
+                       var currentOffset = document.documentElement.scrollTop || document.body.scrollTop;
+
+                       var startPos = parseInt(setMenuOffset.initialPos) || 100;
+
+                       var desiredOffset = startPos - currentOffset;
+
+                           if(desiredOffset < 10) {desiredOffset = 10;}
+
+                           if(desiredOffset != parseInt(toc.style.top)) {
+
+                                    toc.style.top = desiredOffset+ 'px';
+                           }
+                 }//end function setMenuOffset
+
+                 /*
+                 Description: get property style for an element for given 'id' 
+                 @param id (String) id of an element
+                 @param styleProp (String) property style element
+                 @return (int) y value of the property
+                 */
+                 function getStyle(id,styleProp) {
+
+                          var x = $(id);
+
+                          if(x.currentStyle) {
+
+                               var y = x.currentStyle[styleProp];
+
+                          } else if(window.getComputedStyle) {
+
+                               var y = document.defaultView.getComputedStyle(x,null).getPropertyValue(styleProp);
+                          }
+
+                    return y;
+
+                 }//end function
+
+                 function $(id){return document.getElementById(id);}
+
+  </script>
+</head>
+<body>
+<!-- start table of content -->
+<div id="toc"><span id="contentheader">hide page contents</span></div>
+<!-- end table of content -->
+<div id="bd">
+<h1>Cookies</h1>
+<p><strong>On this page I give three functions to save, read and erase cookies. Using these functions you can manage cookies on your site</strong></p>
+<p>First an introduction to cookies, and  a summary of document.cookie, followed by an example. Then come the three function and their explanation.</p>
+<h2>Cookies</h2>
+<p>Cookies were originally invented by Netscape to give 'memory' to web servers and browsers. The HTTP protocol, which arranges for the transfer of web pages to your browser and browser requests for pages to servers, is state-less, which means that once the server has sent a page  to a browser requesting it, it doesn't remember a thing about it. So if you come to the same web page a second, third, hundredth or milionth time, the server once again considers it the very first time you ever come there.</p> 
+<p>This can be annoying in a number of ways. The server cannot remember if you identified yourself when you want to access protected pages, it cannot remember your user preferences, it cannot remember anything.</p>
+<p>Cookies were invented to solve this problem. There are another to solve it, but cookies are easy to maintain and very versatile.</p>
+<h2>How cookies work</h2>
+<p>A Cookie is nothing but a small text file that's stored in your browser. It contains some data:</p>
+<ul>
+<li>A name-value pair containing the actual data</li>
+<li>An expiry date after which it is no longer valid</li>
+<li>The domain and path of the server it should be sent to</li>
+</ul>
+<p>As soon as you request a page from a server to which a cookie should be sent, the cookie is added to the HTTP header. Server side programs can then read out the information and decide that you have the right to view page you requested or that you want your links to be yellow on a green background.</p>
+<p>So every time you visit the site the cookie comes from, information about you is available. This is very  nice sometimes, at other times, it may somewhat endager your privacy. Fortunately more and more browsers give you the opportunity to manage your cookies(deleting the one from the big site, for example)</p>
+<p>Cookies can be read by JavaScript too. They're mostly used for storing user preferences.</p>
+<h3>name-value</h3>
+<p>Each cookie has a name-value pair that contains the actual information. The name of the cookie is for your benefit, you will search for this name when reading out the  cookie information.</p>
+<p>If you want to read out the cookie you search for the name and see what value is attached to it. Read out this value. Of course, you yourself have to decide which values the cookie can have and to write the scripts to deal with these values.</p>
+<h3>Expiry date</h3>
+<p>Each cookie has an expiry date after which it is trashed. If you don't specify the expiry date the cookie is trashed when you close the browser. The expiry date should be in UTC(Greenwich) time.</p>
+<h3>Domain and path</h3>
+<p>Each cookie also has a domain and path. The domain tells the browser to which domain the cookie should be sent. If you don't specify it, it becomes the domain of the page that sets the cookie, in this case of this page www.thinkphp.ro.</p>
+<p>Please note that the purpose of the domain is to allow cookies to cross sub-domains. My cookie will not be read by search.thinkphp.ro because its domain is www.thinkphp.ro. When I set the domain to thinkphp.ro, the search subdomain may also read the cookie. I cannot set the cookie domain to a domain. I'm not in, I cannot make the domain www.yahoo.com. Only www.thinkphp.ro is allowed, in this case.</p>
+<p>The path gives you the chance to specify a directory where the cookie is active. So if you want the cookie to be only sent to pages in the directory cgi-bin, set the path /cgi-bin. Usually the path is set to /, which means the cookie is valid thougtout the entire domain.</p>
+<p>The script does so, so the cookies you can set on this page will be sent to any page in the www.thinkphp.ro domain(thougt only this page has a script that searches for the cookies and does something with them).</p>
+<h2>document.cookie</h2>
+<p>Cookies can be created, read and erased by JavaScript. They are accesible through the property document.cookie. Though you can treat document.cookie as if it's a string, it isn't really, and you have only access to the <i>name-value</i> pairs</p>
+<p>If I want to set a cookie for this domain with a name-value pair 'thinkcookie1=valuecookie1' that expires in seven days from the moment I write this sentence I do</p>
+<p>document.cookie = 'thinkcookie1=valuecookie1; expires=Mon, 27 Jan 2010 20:20:12 UTC; path=/'</p>
+<ul>
+<li>First the <i>name-value</i> pair ('thinkcookie1=valuecookie1')</li>
+<li>then a semicolon and a space</li>
+<li>the the expiry date in the correct format 'expires=Mon, 27 Jan 2010 20:20:12 UTC'</li>
+<li>again a semicolon and a space</li>
+<li>then the path (path=/)</li>
+</ul>
+<p>This is a very strict syntax, don't change it! (Of course the script manages these dirty bits for you)</p>
+<p>Also, even though it looks like I'm writting this whole string to the string document.cookie, as soon as I read it out again I only see the name-value pair name-value pair:</p>
+<p>thinkcookie1=valuecookie1</p>
+<p>If I want to set another cookie, I again do:</p>
+<p>document.cookie = 'thinkcookie2=another valuecookie; expires=Mon, 27 Jan 2010 20:20:12 UTC; path=/'</p>
+<p>The first cookie is not overwritten , as it would when document.cookie would be a real string. Instead the second one is added to document.cookie, so if we read it out we get:</p>
+<p>thinkcookie1=valuecookie1; thinkcookie2=another valuecookie</p>
+<p>If I reset cookie</p>
+<p>document.cookie = 'thinkcookie2=yet anothervalue; expires=fri, 27 Jan 2010 20:20:12 UTC; path=/'</p>
+<p>the old cookie is overwritten and document.cookie reads</p>
+<p>thinkcookie2=valuecookie1; thinkcookie2=yet anothervalue</p>
+<p>To read out a cookie you have to treat document.cookie as a STRING and search for certain characters(semicolons, for instance) and for the cookie name. I will explain how to do it below.</p>
+<p>Finally, to remove a cookie, set it to expiry date before today. The browse sees that the cookie has expired and removes it.</p>
+<p>document.cookie = 'thinkcookie2=yet anothervalue; expires=fri, 27 Jan 2007 20:20:12 UTC; path=/'</p>
+<h2>Example</h2>
+
+<p>If you're thoroughly confused by all this strange syntax, try the syntax below. You can set two cookie thinkcookie1 and thinkcookie2. Fill in the desired value in the text box.</p>
+<p><form name="cookieform" action="#"><label for="">The value of the cookie should be: </label><input type="text" name="cookiename"/></form></p>
+<p class="example">
+<a href="javascript:saveIt('thinkcookie1');">Create cookie1</a><br/>
+<a href="javascript:readIt('thinkcookie1');">Read cookie1</a><br/>
+<a href="javascript:eraseIt('thinkcookie1');">Erase cookie1</a><br/>
+</p>
+<p class="example">
+<a href="javascript:saveIt('thinkcookie2');">Create cookie2</a><br/>
+<a href="javascript:readIt('thinkcookie2');">Read cookie2</a><br/>
+<a href="javascript:eraseIt('thinkcookie2');">Erase cookie2</a><br/>
+</p>
+<h2>The scripts</h2>
+<pre><code>
+function createCookie(name,value,days) {
+
+         if(days) {
+
+                var date = new Date();
+
+                    date.setTime(date.getTime()+(days*24*60*60*1000));
+
+                    var expires = "; expires="+date.toGMTString();
+         } else {
+  
+           expires = ""; 
+         }
+
+  document.cookie = name + "="+ value + expires+"; path=/";
+
+}//end function
+
+function readCookie(name) {
+
+        var nameEQ = name + '=';
+
+        var ca = document.cookie.split(";");
+
+            for(var i=0;i < ca.length;i++) {
+
+                 var c = ca[i];
+
+                 while(c.charAt(0) == ' ') {
+
+                       c = c.substr(1,c.length); 
+                 }
+
+                 if(c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length); 
+            } 
+
+       return null;
+
+}//end function
+
+function eraseCookie(name) {
+
+     createCookie(name,"",-1);
+
+}//end function
+</code></pre>
+<h2>Explanation</h2>
+<p>The functions are not difficult, the hardest part is creating the correct syntax for setting a cookie.</p>
+<h3>createCookie</h3>
+<p>when calling createCookie() you have to give it three bits of information: the name and value of the cookie and the number of days it is to remain active.In this case the name-value pair should become namecookie=valuecookie and it should be active for 7 days</p>
+<p>createCookie('namecookie','valuecookie',7)</p>
+<p>If you set the numeber of days to 0 the cookie is trashed when the user close the browser. If you set the days to a negative number the cookie is trashed immediately.</p>
+<p>The function receives the arguments and starts doing its job.</p>
+<pre><code>
+function createCookie(name,value,days) {
+</code></pre>
+<p>First of all see if there is a 'days' value. If there isn't we don't need to do the time calculation.</p>
+<pre><code>
+if(days) {
+</code></pre>
+<p>If there is, create a new Date object containing the current date.</p>
+<pre><code>
+var date = new Date();
+</code></pre>
+<p>Now get the current Time (in milliseconds) and add the required number of days (in milliseconds). Set the time of the date to this new value, so that it now contains the date in milliseconds that the cookie should expire.</p>
+<pre><code>
+date.setTime(date.getTime()+(days*24*60*60*1000)); 
+</code></pre>
+<p>Set the variable 'expires' to this date in the UTC/GMT format required by cookie</p>
+<pre><code>
+var expires = "; expires="+date.toGMTString();
+}
+</code></pre>
+<p>If 0 is passed to the function, expires is not set and the cookie expires when the user closes his browser.</p>
+<pre><code>
+else var expires = "";
+</code></pre>
+<p>Finally write the new cookie into document.cookie in the correct syntax.</p>
+<pre><code>
+document.cookie = name+"="+value+"; expires="+expires+"; path=/";
+}
+<p><strong>Cookie created.</strong></p>
+</code></pre>
+<h3>readCookie</h3>
+<p>To read out a cookie, call this function and pass the name of the cookie. Put the name in variable.First check is this variable has a value(if the cookie does not exists the variable become null, which might upset the rest of your function), then do whatever is necessary.)</p>
+<pre><code>
+var x = readCookie('thinkcookie');
+if(x) {
+[do something to x]
+}
+</code></pre>
+<p>The function receives the argument and starts</p>
+<pre><code>
+function readCookie(nane) {
+</code></pre>
+<p>We're going to search for the name of the cookie, followed by an =.So create this new string and put it in nameEQ:</p>
+<pre><code>
+var nameEQ = name + "=";
+</code></pre>
+<p>Then split document.cookie on semicolons. 'ca' becomes an array containing all cookies that are set for this domain and path.</p>
+<pre><code>
+var ca = document.cookie.split(";");
+</code></pre>
+<p>Then we go through the array(so through all cookies)<p/>
+<pre><code>
+for(var i=0;i < ca.length;i++) {
+</code></pre>
+<p>Set c to the cookie to be checked.</>
+<pre><code>
+var c = ca[i];
+</code></pre>
+<p>If the first character is a space, remove it by using the substring() method. Continue doing this until the first character is not a space.</p>
+<pre><code>
+while(c.charAt(0) == ' ') {c = c.substring(1,c.length);}
+</code></pre>
+<p>Now string 'c' begins with the name of the current cookie. If this is the name of the desired cookie</p>
+<pre><code>
+if(c.indexOf(nameEQ) == 0) {
+</code></pre>
+<p>we've found what were looking for. We now only need to return the value of the cookie, which is the part of 'c' that come after 'nameEQ'. By returning this value we also end the function: mission accomplished.</p>
+<pre><code>
+if(c.indexOf(nameEQ) == 0) {return c.substring(nameEQ.length,c.length)}
+</code></pre>
+<p>If, after having gone through all cookies, we haven't found the name we're looking for, the cookie is not present. We return null.</p>
+<pre><code>
+return null;
+}
+</code></pre>
+<p><strong>Cookie read.</strong></p>
+<h3>eraseCookie</h3>
+<p>Erasing is extremely simple</p>
+<pre><code>
+eraseCookie('namecookie');
+</code></pre>
+<p>Pass the name of the cookie to be erased</p>
+<pre><code>
+function eraseCookie(nme) {
+</code></pre>
+<p>and call createCookie() to set the cookie with an expiry date of one day ago.</p>
+<pre><code>
+createCookie(name,"",-1);
+}
+</code></pre>
+<p>The browser, seeing that the expiry date has passed, immediately remove the cookie.</p>
+</div>
+<script type="text/javascript" src="toc-dom.js"></script>
+</body>
+</html>

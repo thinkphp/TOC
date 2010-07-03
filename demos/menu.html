@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+   <title>A few demos of How to Create a Table of Contents from HTML Headings</title>
+   <link rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css">
+   <link rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/base/base.css" type="text/css">
+   <style type="text/css">
+    html,body{background:#ccc;color:#ccc;}
+    a{color: #fff;}
+    #doc{background:#69c;border:1em solid #69c;-moz-border-radius:5px;-moz-box-shadow:0 4px 4px #111;color:#000}
+    #hd h1{text-shadow:1px 3px 3px #111;margin:0 0 .5em 0;color:#fff}
+    #ft p{text-align:right;font-size:80%;}    
+    ul li{padding: 10px}
+   </style>
+</head>
+<body>
+<div id="doc" class="yui-t7">
+   <div id="hd" role="banner"><h1>TOC creation from HTML headings</h1></div>
+   <div id="bd" role="main">
+	<div class="yui-g">
+            <ul>
+                <li><a href="php/input.html" target="_blank">HTML Heading structure showing TOC</a></li>
+                <li><a href="dom/toc-dom-cookies.html" target="_blank">Creating the TOC using DOM</a></li>
+                <li><a href="regexp/toc-dom-regexp.html" target="_blank">Creating the TOC using JavaScript, innerHTML and RegExp</a></li>
+                <li><a href="yui/toc-yui-cookies.html" target="_blank">Creating the TOC using YUI</a></li>
+                <li><a href="mootools/toc-moo-cookies.html" target="_blank">Creating the TOC using MooTools</a></li>
+                <li><a href="php/toc_ob.php" target="_blank">Using the PHP ob_start($callback) output buffer to create the TOC</a> | <a href="php/toc_ob.phps">source</a></li>
+                <li><a href="php/toc.php?file=input.html" target="_blank">Looping input.html through a PHP script to create the TOC</a> | <a href="php/toc.phps">source</a></li>
+            </ul>	
+
+	</div>
+
+	</div>
+   <div id="ft" role="contentinfo"><p>written by Adrian Statscu</p></div>
+</div>
+</body>
+</html>
