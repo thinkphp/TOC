@@ -3,5 +3,5 @@ author: thinkphp
 current: v1.0 
 category: utilities 
 tags: [toc,headings,content,table]
-docs: http://github.com/thinkphp/TOC/blob/v1.0/Docs/TOC.md
+docs: http://github.com/thinkphp/TOC/blob/master/Docs/TOC.md
 demo: http://thinkphp.ro/apps/js-hacks/toc/mootools/toc-moo-cookies.html 
