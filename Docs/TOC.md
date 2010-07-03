@@ -16,7 +16,7 @@ TOC Method: constructor {#TOC:constructor}
 
 ### Arguments:
 
-      1. element - (*string or Element*)  The element where you want to create Table of Content.
+      1. element - (*string* or *Element*)  The element where you want to create Table of Content.
 
 ### Returns:
 
