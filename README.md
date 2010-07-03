@@ -11,11 +11,16 @@ How to Use
 
 TOC can be initialized an any time, but will most lilely be initialized ad DOMReady
 
+First you must to include the JS files in the head of your HTML document.
+       
+     #HTML
+     <script type="text/javascript" src="mootools-core.js"></script>
+     <script type="text/javascript" src="toc.js"></script>
 
-      #JS
-      var toc = new TOC('toc');
+     #JS
+     var toc = new TOC('toc');
 
-      #HTML
+     #HTML
      <div id="toc"></div>
      <h1>Unobtrusive JavaScript</h1>
      <h2>Operation Cleanout</h2>
