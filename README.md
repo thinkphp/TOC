@@ -23,7 +23,6 @@ TOC can be initialized an any time, but will most lilely be initialized ad DOMRe
      <h3>JavaScript is an enhancement, not a secure functionality</h3>
      <h3>Check the availability of the object before accessing it</h3>
      <h3>Create JavaScript, not browser specific dialects</h3>
-
      <h3>Don't hijack other script's variables</h3>
      <h3>Keep effects mouse independent</h3>
      <h2>Reach what you want to change</h2>
@@ -33,7 +32,6 @@ TOC can be initialized an any time, but will most lilely be initialized ad DOMRe
      <h2>Creating and destroying elements</h2>
      <h3>createElement(element)</h3>
      <h3>createTextNode(string)</h3>
-
      <h3>setAttribute(attribute,value)</h3>
      <h3>appendChild(child)</h3>
      <h3>cloneNode</h3>
@@ -43,7 +41,6 @@ TOC can be initialized an any time, but will most lilely be initialized ad DOMRe
      <h3>replaceChild(newChild,oldChild)</h3>
      <h3>removeAttribute(attribute)</h3>
      <h2>Separated JS and CSS</h2>
-
      <h3>Our mistake</h3>
      <h3>Applying classes via JavaScript</h3>
      <h3>Multiple classes syntax</h3>
