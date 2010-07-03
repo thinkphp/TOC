@@ -1,5 +1,5 @@
 TOC
-=========
+===
 
 TOC is a MooTools Plugin which turn a list of HTML headings into a Table of Content.
  
