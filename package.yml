@@ -1,7 +1,7 @@
-name:  TOC
-author:  Adrian Statescu
-current:  
-category:  
-tags:  []
-docs:  
-demo:  
+name: TOC
+author: thinkphp
+current: v1.0 
+category: utilities 
+tags: [toc,headings,content,table]
+docs: http://github.com/thinkphp/TOC/blob/v1.0/Docs/TOC.md
+demo: http://thinkphp.ro/apps/js-hacks/toc/mootools/toc-moo-cookies.html 
