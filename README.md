@@ -9,7 +9,7 @@ TOC is a MooTools Plugin which turn a list of HTML headings into a Table of Cont
 How to Use
 ----------
 
-TOC can be initialized an any time, but will most lilely be initialized ad DOMReady.
+TOC can be initialized an any time, but will most lilely be initialized at DOMReady.
 
 
 First you must to include the JS files in the head of your HTML document.
