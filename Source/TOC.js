@@ -1,6 +1,6 @@
 /*
 ---
-description: TOC is a MooTools Plugin which turn a HTML headings into a Table of Content.
+description: TOC is a MooTools Plugin which turn a list of HTML headings into a Table of Content.
 
 authors:
 - Adrian Statescu (http://thinkphp.ro).
