@@ -19,9 +19,10 @@ var TOC = new Class({
 
           /* public method - constructor of class initialize */
 
-          initialize: function(elem) {
+          initialize: function(to,from) {
  
-               this.toc = $(elem);
+               this.toc = $(to);
+               this.from = $(from);
 
                if(!this.toc) {return};
 
@@ -85,7 +86,7 @@ var TOC = new Class({
           /* private method */
           getElementsByTagNamess: function(list,obj) {
 
-               if (!obj) var obj = document;
+               if (!obj) var obj = this.from;
 
                    var tagNames = list.split(',');
 
